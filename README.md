@@ -1,13 +1,13 @@
-### GPA Calculator
+# GPA Calculator
 This is a GPA Calculator built using React. It enables users to input their courses, select between letter or percentage grade formats, and calculate their GPA based on the credits and grades for each course.
 
-## Features
+### Features
 • Dynamic course addition/removal: Add multiple courses that include a name (optional), how many credits it's worth, and final grade. Courses can be removed individually.
 • Letter and percentage grades: Supports switching between letter grades (A+, A, B+, etc...) and percentage grades (e.g., 85%).
 • GPA calculation: Automatically computes GPA when the 'Calculate GPA' button is clicked. This button is also triggered by the 'Enter' key.
 • Error handling: If any required fields are left empty, an error message prompts the user to fill out all required fields.
 
-## How it Works
+### How it Works
 1. Course Input
 Users can input their course details, including:
 
@@ -21,7 +21,7 @@ There are two grading formats available:
 • Letter Grades: Includes standard letter grades (A+, A, A-, B+, B, etc.) with their respective grade point values.
 • Percentage Grades: Users can enter a percentage score (e.g., 90%), and the calculator automatically converts it to a grade point using a predefined scale.
 
-# Grade Point Conversion Scale
+### Grade Point Conversion Scale
 Percentage scores are converted to grade points according to this scale:
 
 97-100 → 4.3 (A+)
@@ -60,11 +60,10 @@ error: Holds any error messages for missing fields.
 gradeFormat: Tracks whether the user is using letter grades or percentage grades.
 
 ## How to Run the App
-
-# Prerequisites
+### Prerequisites
 Ensure that you have Node.js and npm installed on your machine.
 
-# Installation
+### Installation
 Clone the repository:
 git clone https://github.com/your-username/gpa-calculator.git
 cd gpa-calculator
@@ -77,9 +76,9 @@ npm start
 
 The app will now be running locally on http://localhost:3000.
 
-# Future Enhancements
+## Future Enhancements
 • Ability to save or export GPA calculations.
 • Additional grade formats (e.g., pass/fail).
 
-# Link to Project
-gpacalculator-dc.netlify.app
+## Link to Project
+[gpacalculator-dc.netlify.app](https://gpacalculator-dc.netlify.app/)
