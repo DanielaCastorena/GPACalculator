@@ -1,7 +1,7 @@
 //Daniela Castorena 2024
 //GPA Calculator - App.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 function App() {
@@ -55,37 +55,36 @@ function App() {
     setCourses(newCourses);
   };
 
-  // Calculate GPA based on courses
-  const calculateGPA = () => {
+  const calculateGPA = useCallback(() => {
     let totalCredits = 0;
     let totalGradePoints = 0;
     let isValid = true;
-
+  
     courses.forEach(course => {
       if (course.credits === '' || course.grade === '') {
         setError('Please fill out all required fields.');
         isValid = false;
         return;
       }
-
+  
       const credits = parseFloat(course.credits);
       let grade = parseFloat(course.grade);
-
+  
       //convert percentage to grade point if needed
       if (gradeFormat === 'percentage') {
         grade = convertPercentageToGradePoint(grade);
       }
-
+  
       totalCredits += credits;
       totalGradePoints += credits * grade;
     });
-
+  
     if (isValid) {
       const gpa = totalGradePoints / totalCredits;
       setGpa(gpa.toFixed(2));
       setError('');
     }
-  };
+  }, [courses, gradeFormat]); 
 
   //calculate GPA button trggered by enter
   useEffect(() => {
@@ -94,13 +93,13 @@ function App() {
         calculateGPA();
       }
     };
-
+  
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [courses]);
-
+  }, [calculateGPA]); 
+  
   return (
     <div className="App">
       <h1>GPA Calculator</h1>
