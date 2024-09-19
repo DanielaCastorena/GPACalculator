@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+### GPA Calculator
+This is a GPA Calculator built using React. It enables users to input their courses, select between letter or percentage grade formats, and calculate their GPA based on the credits and grades for each course.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+• Dynamic course addition/removal: Add multiple courses that include a name (optional), how many credits it's worth, and final grade. Courses can be removed individually.
+• Letter and percentage grades: Supports switching between letter grades (A+, A, B+, etc...) and percentage grades (e.g., 85%).
+• GPA calculation: Automatically computes GPA when the 'Calculate GPA' button is clicked. This button is also triggered by the 'Enter' key.
+• Error handling: If any required fields are left empty, an error message prompts the user to fill out all required fields.
 
-## Available Scripts
+## How it Works
+1. Course Input
+Users can input their course details, including:
 
-In the project directory, you can run:
+• Course Name (optional): A text field where users can name the course (e.g., "Math").
+• Credits: A numeric input for the number of credits each course is worth.
+• Grade: Depending on the selected format (letter or percentage), the grade is either a drop-down list (for letter grades) or a number input (for percentage grades).
 
-### `npm start`
+2. Grade Format
+There are two grading formats available:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+• Letter Grades: Includes standard letter grades (A+, A, A-, B+, B, etc.) with their respective grade point values.
+• Percentage Grades: Users can enter a percentage score (e.g., 90%), and the calculator automatically converts it to a grade point using a predefined scale.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Grade Point Conversion Scale
+Percentage scores are converted to grade points according to this scale:
 
-### `npm test`
+97-100 → 4.3 (A+)
+93-96 → 4.0 (A)
+90-92 → 3.7 (A-)
+87-89 → 3.3 (B+)
+83-86 → 3.0 (B)
+80-82 → 2.7 (B-)
+77-79 → 2.3 (C+)
+73-76 → 2.0 (C)
+70-72 → 1.7 (C-)
+67-69 → 1.3 (D+)
+63-66 → 1.0 (D)
+60-62 → 0.7 (D-)
+Below 60 → 0.0 (F)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. GPA Calculation
+The GPA is calculated using the following formula:
 
-### `npm run build`
+GPA = (Sum of (Credits * Grade Points)) / Total Credits
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The total credits and grade points for each course are summed, and the GPA is calculated by dividing the total grade points by the total credits. If any course is missing a required field (credits or grade), an error message is displayed prompting the user to complete the fields.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Key Functionality
+• Add Course: Adds a new course input row, allowing the user to enter additional course details.
+• Remove Course: Allows users to remove courses by clicking the 'X' button next to each course.
+• Calculate GPA: Calculates and displays the GPA based on the entered course data. If there are missing fields, it shows an error message. Users may also press the 'Enter' key to calculate the GPA.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Error Handling
+If any fields (credits or grade) are left empty, the app displays an error message asking the user to complete all required fields.
 
-### `npm run eject`
+6. State Management
+courses: An array of course objects, each containing name, credits, and grade.
+gpa: The calculated GPA, which is displayed after calculation.
+error: Holds any error messages for missing fields.
+gradeFormat: Tracks whether the user is using letter grades or percentage grades.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to Run the App
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Prerequisites
+Ensure that you have Node.js and npm installed on your machine.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Installation
+Clone the repository:
+git clone https://github.com/your-username/gpa-calculator.git
+cd gpa-calculator
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install the dependencies:
+npm install
 
-## Learn More
+Start the application:
+npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app will now be running locally on http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Future Enhancements
+• Ability to save or export GPA calculations.
+• Additional grade formats (e.g., pass/fail).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Link to Project
+gpacalculator-dc.netlify.app
