@@ -159,7 +159,7 @@ function App() {
                 required
               />
               <label>
-                Grade {gradeFormat === 'percentage' ? '(%):' : ''}
+                Grade: {gradeFormat === 'percentage' ? '(%):' : ''}
               </label>
               {gradeFormat === 'letter' ? (
                 <select
